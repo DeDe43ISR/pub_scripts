@@ -149,7 +149,7 @@ download_custom_models() {
     # Download all models in the background
     for model_name in "${!models[@]}"; do
         model_id=${models[$model_name]}
-        wget "https://civitai.com/api/download/models/${model_id}?token=f87bfcc99eed0453d41c30355418fa9e" -O "$LORA_DIR/${model_name}.safetensors" &
+        wget "https://civitai.com/api/download/models/${model_id}?token=$CIVITAI_TOKEN" -O "$LORA_DIR/${model_name}.safetensors" &
     done
 
     # Wait for all downloads to finish
