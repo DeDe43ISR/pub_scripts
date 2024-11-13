@@ -117,8 +117,8 @@ download_gguf_models() {
 download_yigal_models() {
     print_message "Downloading YIGAL models"
     download_and_link "dededinuo/yigal_new" "yigal_new.safetensors" "$LORA_DIR" "$SWARM_UI_MODELS_DIR/Lora"
-    download_and_link "dededinuo/yigal" "Rank_1_SLOW_YIGAL-000175.safetensors" "$LORA_DIR" "$SWARM_UI_MODELS_DIR/Lora"
-    download_and_link "dededinuo/yigal_v2" "Rank_1_SLOW_4x_GPU.safetensors" "$LORA_DIR" "$SWARM_UI_MODELS_DIR/Lora"
+#    download_and_link "dededinuo/yigal" "Rank_1_SLOW_YIGAL-000175.safetensors" "$LORA_DIR" "$SWARM_UI_MODELS_DIR/Lora"
+#    download_and_link "dededinuo/yigal_v2" "Rank_1_SLOW_4x_GPU.safetensors" "$LORA_DIR" "$SWARM_UI_MODELS_DIR/Lora"
 }
 
 # Function to download the LLM model (new -m flag) into the specified LLM_DIR
