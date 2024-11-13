@@ -166,8 +166,15 @@ download_custom_models() {
 check_cloudflared() {
     print_message "Checking for cloudflared"
 
+    # Check if cloudflared is installed via dpkg
+    if dpkg -l | grep -q "cloudflared"; then
+        print_message "cloudflared is already installed"
+        return
+    fi
+
+    # Check if the cloudflared DEB file exists, download if not
     if [[ -f "$CLOUDFLARED_DEB" ]]; then
-        print_message "cloudflared is already downloaded"
+        print_message "cloudflared DEB package already exists"
     else
         print_message "Downloading cloudflared"
         wget https://github.com/cloudflare/cloudflared/releases/download/2024.11.0/cloudflared-linux-amd64.deb -O "$CLOUDFLARED_DEB"
@@ -177,6 +184,7 @@ check_cloudflared() {
     print_message "Installing cloudflared using apt"
     sudo apt install "$CLOUDFLARED_DEB"
 }
+
 
 # Check and install pip packages if needed
 check_and_install_pip_packages
